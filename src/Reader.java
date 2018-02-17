@@ -4,9 +4,6 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Created by mrtvor on 2018-02-16.
- */
 public class Reader {
     private Scanner reader;
     private String location;

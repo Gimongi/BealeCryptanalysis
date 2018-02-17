@@ -1,8 +1,5 @@
 import java.util.Scanner;
 
-/**
- * Created by mrtvor on 2018-02-16.
- */
 public class Shifter {
     private int[][] numbers;
     private String[][] letters;
@@ -56,6 +53,10 @@ public class Shifter {
         }
     }
 
+    /**
+     * Method for shifting a word through the array
+     * @param word
+     */
     public void BeginShift(String word) {
         String[] letters = word.split("(?!^)");
 
@@ -68,6 +69,13 @@ public class Shifter {
                     else
                         swapLetter(numbers[i + 1][(j + x) % 20], letters[x]);
                 }
+                /**
+                 * Logic should be added here where you can have one of three options:
+                 * 1. Shift word to right "r"
+                 * 2. Shift word to left "l"
+                 * 3. Swap a letter for a number "n"
+                 * 4. Swap a number back for a letter "u"
+                 */
                 showBoard();
                 holder.next();
             }
