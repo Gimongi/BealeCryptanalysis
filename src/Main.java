@@ -9,16 +9,21 @@ public class Main {
         String path = "/Users/mrtvor/Documents/Comp-Sci Stuff/Cryptography/BealeCryptanalysis/Beale1.rtf";
 
         Reader reader = new Reader(path);
-        int[][] test = reader.ReadFile();
+        int[][] test = reader.FileToIntArray();
 
-        for(int i = 0; i < test.length; i++){
-            for(int j = 0; j < test[i].length; j++) {
-                    System.out.print("[" + test[i][j] + "]");
-            }
-            System.out.println();
-        }
+//        for(int i = 0; i < test.length; i++){
+//            for(int j = 0; j < test[i].length; j++) {
+//                    System.out.print("[" + test[i][j] + "]");
+//            }
+//            System.out.println();
+//        }
 
-//        stats = new CryptoStats(test);
+//        stats = new CryptoStats(reader.FileToIntArray(),reader.FileToStringArray());
+
+        Shifter reveal = new Shifter(reader.FileToIntArray(), reader.FileToStringArray());
+
+//        reveal.showBoard();
+        reveal.BeginShift("VAULT");
     }
 
 }

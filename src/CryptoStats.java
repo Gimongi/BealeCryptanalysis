@@ -2,29 +2,18 @@ public class CryptoStats {
     private int[][] occurences;
     private int[][] numbers;
     private String[][] letters;
-    private int textLength;
 
     public CryptoStats() {
         super();
     }
 
-    public CryptoStats(int[][] data) {
+    public CryptoStats(int[][] data, String[][] strData) {
         numbers = data;
-        letters = new String[data.length][data[0].length];
+        letters = strData;
+        occurences = new int[540][2];
         clearLetters();
-        setLengths();
         countOccurrences();
         PrintStats();
-    }
-
-    public void setLengths() {
-        int length = numbers.length * numbers[0].length;
-        occurences = new int[length][2];
-        for(int i = 0; i < occurences.length; i++) {
-            occurences[i][0] = 0;
-            occurences[i][1] = 0;
-        }
-        textLength = length;
     }
 
     public void swapLetter(int num, String letter) {
@@ -44,13 +33,15 @@ public class CryptoStats {
         int placeholder = 0;
         int count = 0;
 
-        for (int i = 0; i < 2500; i++) {
+        for (int i = 1; i < 2500; i++) {
             for(int x = 0; x < numbers.length; x++) {
                 for(int y = 0; y < numbers[x].length; y++){
-                    if(numbers[x][y] == i);
-                    count++;
+                    if(numbers[x][y] == i)
+                        count++;
                 }
             }
+//            System.out.println("i: " + i);
+//            System.out.println("Count: " + count);
             if(count > 0) {
                 occurences[placeholder][0] = i;
                 occurences[placeholder++][1] = count;
@@ -60,8 +51,9 @@ public class CryptoStats {
     }
 
     private void PrintStats() {
-        for(int i = 0; i < textLength; i++) {
-            System.out.println(occurences[i][0] + ": " + occurences[i][1]);
+        for(int i = 0; i < 540; i++) {
+            if(occurences[i][0] != 0)
+                System.out.println(occurences[i][0] + ": " + occurences[i][1]);
         }
     }
 }

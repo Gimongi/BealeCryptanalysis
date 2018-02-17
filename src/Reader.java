@@ -23,29 +23,50 @@ public class Reader {
      * Reads in from file location and returns contents in a 2D String array
      * @return file from location
      */
-    public int[][] ReadFile() {
-        String[][] input = new String[29][];
-        int[][] output = new int[29][];
-        Scanner readah;
+    public int[][] FileToIntArray() {
+        String[][] input = new String[27][20];
+        int[][] output = new int[27][20];
         int count = 0;
 
         try {
-            readah = new Scanner(new FileReader(location));
-            String line = readah.nextLine();
-            while (readah.hasNext()) {
+            reader = new Scanner(new FileReader(location));
+            String line = reader.nextLine();
+            while (reader.hasNext()) {
 //                System.out.println("READ:" + line);
                 input[count++] = line.split(",");
-                line = readah.nextLine();
+                line = reader.nextLine();
             }
             input[count++] = line.split(",");
-            readah.close();
+            reader.close();
         } catch (IOException io) {
             log.log(Level.WARNING,io.getMessage());
         }
         for(int i = 0; i < input.length; i++)
-            for(int j = 0; j < input[i].length; j++)
+            for(int j = 0; j < input[i].length; j++) {
                 output[i][j] = Integer.parseInt(input[i][j]);
+            }
 
         return output;
+    }
+
+    public String[][] FileToStringArray() {
+        String[][] input = new String[27][20];
+        int count = 0;
+
+        try {
+            reader = new Scanner(new FileReader(location));
+            String line = reader.nextLine();
+            while (reader.hasNext()) {
+//                System.out.println("READ:" + line);
+                input[count++] = line.split(",");
+                line = reader.nextLine();
+            }
+            input[count++] = line.split(",");
+            reader.close();
+        } catch (IOException io) {
+            log.log(Level.WARNING,io.getMessage());
+        }
+
+        return input;
     }
 }
