@@ -19,8 +19,13 @@ public class Reader {
         this.location = location;
     }
 
-    public String[][] ReadFile() {
-        String[][] input = new String[30][];
+    /**
+     * Reads in from file location and returns contents in a 2D String array
+     * @return file from location
+     */
+    public int[][] ReadFile() {
+        String[][] input = new String[29][];
+        int[][] output = new int[29][];
         Scanner readah;
         int count = 0;
 
@@ -32,10 +37,15 @@ public class Reader {
                 input[count++] = line.split(",");
                 line = readah.nextLine();
             }
+            input[count++] = line.split(",");
             readah.close();
         } catch (IOException io) {
             log.log(Level.WARNING,io.getMessage());
         }
-        return input;
+        for(int i = 0; i < input.length; i++)
+            for(int j = 0; j < input[i].length; j++)
+                output[i][j] = Integer.parseInt(input[i][j]);
+
+        return output;
     }
 }
