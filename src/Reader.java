@@ -21,8 +21,8 @@ public class Reader {
      * @return file from location
      */
     public int[][] FileToIntArray() {
-        String[][] input = new String[27][20];
-        int[][] output = new int[27][20];
+        String[][] input = new String[26][20];
+        int[][] output = new int[26][20];
         int count = 0;
 
         try {
@@ -47,7 +47,7 @@ public class Reader {
     }
 
     public String[][] FileToStringArray() {
-        String[][] input = new String[27][20];
+        String[][] input = new String[26][20];
         int count = 0;
 
         try {

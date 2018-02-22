@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -17,10 +19,15 @@ public class Main {
 
 //        stats = new CryptoStats(reader.FileToIntArray(),reader.FileToStringArray());
 
-        Shifter reveal = new Shifter(reader.FileToIntArray(), reader.FileToStringArray());
+        Scanner wordGetter = new Scanner(System.in);
+
+        System.out.println("Word to be shifted");
+        String word = wordGetter.next();
+
+        Shifter reveal = new Shifter(reader.FileToIntArray(), reader.FileToStringArray(), word);
 
 //        reveal.showBoard();
-        reveal.BeginShift("VAULT");
+        reveal.menu();
     }
 
 }
