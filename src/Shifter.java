@@ -6,6 +6,7 @@ public class Shifter {
     int wordCol = 0;
     private int[][] numbers;
     private String[][] letters;
+    private String[][] replacements = new String[300][2];
     private Scanner holder = new Scanner(System.in);
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_RESET = "\u001B[0m";
@@ -32,9 +33,11 @@ public class Shifter {
         while(input != 5) {
             System.out.println("1. Right Shift");
             System.out.println("2. Left Shift");
-            System.out.println("3. Swap In Letter");
-            System.out.println("4. Swap In Number");
-            System.out.println("5. Exit");
+            System.out.println("3. Down Shift");
+            System.out.println("4. Up Shift");
+            System.out.println("5. Swap In Letter");
+            System.out.println("6. Swap In Number");
+            System.out.println("7. Exit");
 
             input = Integer.parseInt(holder.next());
 
@@ -44,10 +47,14 @@ public class Shifter {
                 case 2: Shift(1);
                         break;
                 case 3: Shift(2);
+                        break;
+                case 4: Shift(3);
+                        break;
+                case 5: Shift(4);
                         Swap();
                         break;
-                case 4: break;
-                case 5: System.exit(0);
+                case 6: break;
+                case 7: System.exit(0);
                         break;
                 default:break;
             }
@@ -140,6 +147,18 @@ public class Shifter {
                     wordCol--;
                 }
             }
+        } else if(dir == 2) {
+            if(wordRow == 0) {
+                wordRow = 25;
+            } else {
+                wordRow--;
+            }
+        } else if(dir == 3) {
+            if(wordRow == 24) {
+                wordRow = 0;
+            } else {
+                wordRow++;
+            }
         }
 
         //Shift here based on wordCol & wordRow
@@ -149,8 +168,8 @@ public class Shifter {
                 swapPosition(wordCol + x,wordRow,letters[x]);
             }
             for(int x = 0; x < letters.length - pop; x++) {
-                System.out.println("POP: " + pop);
-                System.out.println("LETTER: " + letters[x + pop]);
+//                System.out.println("POP: " + pop);
+//                System.out.println("LETTER: " + letters[x + pop]);
                 swapPosition(x,wordRow + 1,letters[x + pop]);
             }
         } else {

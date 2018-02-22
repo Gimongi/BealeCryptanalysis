@@ -58,7 +58,7 @@ public class Reader {
                 input[count++] = line.split(",");
                 line = reader.nextLine();
             }
-            input[count++] = line.split(",");
+            input[count] = line.split(",");
             reader.close();
         } catch (IOException io) {
             log.log(Level.WARNING,io.getMessage());
