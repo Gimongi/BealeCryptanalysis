@@ -15,6 +15,6 @@ Thoughts & Observations
 
 ---
 
-###Frequency charts that I reference
+### Frequency charts that I reference
 [Letter frequency in English language](https://en.wikipedia.org/wiki/Letter_frequency)
 
